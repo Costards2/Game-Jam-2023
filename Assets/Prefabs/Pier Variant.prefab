@@ -93,6 +93,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 56704a1b1582e7148827540b8cf5c2d5, type: 2}
+    - target: {fileID: -3542852092398272455, guid: 0741f1d8e4ce8c048a759116ca4cb278,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.88
+      objectReference: {fileID: 0}
     - target: {fileID: -1806680513116206669, guid: 0741f1d8e4ce8c048a759116ca4cb278,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -113,6 +118,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4fa3eddc1f8541047b955b319e907837, type: 2}
+    - target: {fileID: -1255605710908113952, guid: 0741f1d8e4ce8c048a759116ca4cb278,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.86
+      objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: 0741f1d8e4ce8c048a759116ca4cb278,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -132,6 +142,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pier Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306643203051859313, guid: 0741f1d8e4ce8c048a759116ca4cb278,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.869
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865064391339405807, guid: 0741f1d8e4ce8c048a759116ca4cb278,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.864
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: 0741f1d8e4ce8c048a759116ca4cb278,
         type: 3}
