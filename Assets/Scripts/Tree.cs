@@ -15,7 +15,7 @@ public class Tree : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
     }
 
     public void TakeDamage(int damage)

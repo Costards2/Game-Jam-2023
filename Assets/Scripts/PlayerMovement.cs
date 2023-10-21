@@ -16,39 +16,41 @@ public class PlayerMovement : MonoBehaviour
     [Header("Mine and Cut")]
     public LayerMask treesLayer;
     public LayerMask rocksLayer;
+    public LayerMask fibreLayer;
     public Transform axePoint;
     public Transform pickaxePoint;
+    public Transform scythePoint;
     public float actionRate = 1f;
     float nextActionTime = 2f;
 
     [Header("Resoursces")]
     public int wood;
     public int stone;
+    public int fibre;
 
     [Header("Bools")]
     public bool hand = true;
     public bool axe = false;
     public bool pickaxe = false;
+    public bool scythe = false;
     public bool leftMouseInput;
 
     [Header("Base Components")]
     [SerializeField] private Animator animator;
-    [SerializeField] private Transform playerTransform;
     [SerializeField] private CharacterController characterController;
-    [SerializeField] private GameObject objectAxe;
     [SerializeField] private Ray axeRay;
     [SerializeField] private Ray pickaxeRay;
+    [SerializeField] private Ray scytheRay;
     [SerializeField] private float maxDistance = 1f;
     [SerializeField] private ItemContabilizer itemContabilizer;
 
-  enum State { Idle, Run, Cut, Mine }
+  enum State { Idle, Run, Cut, Mine, ScytheCut }
 
     State state = State.Idle;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        playerTransform = GetComponent<Transform>();
     }
 
     private void Update()
@@ -65,18 +67,28 @@ public class PlayerMovement : MonoBehaviour
             hand = true;
             axe = false;
             pickaxe = false;
-        }
+            scythe = false;
+}
         else if (Input.GetKey(KeyCode.Alpha2))
         {
             hand = false;
             axe = true;
             pickaxe = false;
+            scythe = false;
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
             hand = false;
             axe = false;
             pickaxe = true;
+            scythe = false;
+        }
+        else if (Input.GetKey(KeyCode.Alpha4))
+        {
+            hand = false;
+            axe = false;
+            pickaxe = false;
+            scythe = true;
         }
 
         switch (state)
@@ -85,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
             case State.Run: RunState(); break;
             case State.Cut: CutState(); break;
             case State.Mine: MineState(); break;
+            case State.ScytheCut: ScytheCutState(); break;
         }
     }
 
@@ -103,6 +116,10 @@ public class PlayerMovement : MonoBehaviour
         else if (leftMouseInput && pickaxe)
         {
             state = State.Mine;
+        }
+        else if (leftMouseInput && scythe)
+        {
+            state = State.ScytheCut;
         }
     }
 
@@ -137,6 +154,10 @@ public class PlayerMovement : MonoBehaviour
         {
             state = State.Mine;
         }
+        else if (leftMouseInput && scythe)
+        {
+            state = State.ScytheCut;
+        }
     }
 
     void CutState()
@@ -167,6 +188,10 @@ public class PlayerMovement : MonoBehaviour
         else if (leftMouseInput && pickaxe)
         {
             state = State.Mine;
+        }
+        else if (leftMouseInput && scythe)
+        {
+            state = State.ScytheCut;
         }
     }
 
@@ -211,6 +236,10 @@ public class PlayerMovement : MonoBehaviour
         {
             state = State.Cut;
         }
+        else if (leftMouseInput && scythe)
+        {
+            state = State.ScytheCut;
+        }
     }
 
     public void AddStone(int number)
@@ -222,6 +251,54 @@ public class PlayerMovement : MonoBehaviour
     public void SpendStone(int number)
     {
         stone -= number;
+        itemContabilizer.DecreaseItemCount();
+    }
+
+    void ScytheCutState()
+    {
+        animator.Play("ScytheCut");
+
+        if (Time.time >= nextActionTime)
+        {
+            scytheRay = new Ray(scythePoint.position, transform.forward);
+
+            if (Physics.Raycast(scytheRay, out RaycastHit hit, maxDistance, fibreLayer))
+            {
+                GameObject hitObject = hit.collider.gameObject; hitObject.GetComponent<Grass>().TakeDamage(20);
+                Debug.Log(hit.collider.gameObject.name + " was hit!");
+            }
+
+            nextActionTime = Time.time + 1f / actionRate;
+        }
+
+        if (horizontalInput != 0f || verticalInput != 0f)
+        {
+            state = State.Run;
+        }
+        else if (horizontalInput == 0f)
+        {
+            state = State.Idle;
+        }
+        else if (leftMouseInput && axe)
+        {
+            state = State.Cut;
+        }
+        else if (leftMouseInput && pickaxe)
+        {
+            state = State.Mine;
+        }
+
+    }
+
+    public void AddFibre(int number)
+    {
+        fibre += number;
+        itemContabilizer.IncreaseItemCount();
+    }
+
+    public void SpendFibre(int number)
+    {
+        fibre -= number;
         itemContabilizer.DecreaseItemCount();
     }
 }
