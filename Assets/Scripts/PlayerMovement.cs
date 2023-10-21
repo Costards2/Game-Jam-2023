@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Base Move")]
+    [Header("Equipe 6+")]
+    [Header("Base Movement")]
     private float horizontalInput = 0f;
     private float verticalInput = 0f;
     public float speed = 6f;
@@ -14,15 +15,15 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Mine and Cut")]
     public LayerMask treesLayer;
+    public LayerMask rocksLayer;
     public Transform axePoint;
     public Transform pickaxePoint;
-    public float actionRate = 2f;
-    float nextActionTime = 0f;
-    float radius = 10f;
+    public float actionRate = 1f;
+    float nextActionTime = 2f;
 
     [Header("Resoursces")]
-    [SerializeField] private int wood;
-    [SerializeField] private int stone;
+    public int wood;
+    public int stone;
 
     [Header("Bools")]
     public bool hand = true;
@@ -34,8 +35,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private GameObject objectAxe;
+    [SerializeField] private Ray axeRay;
+    [SerializeField] private Ray pickaxeRay;
+    [SerializeField] private float maxDistance = 1f;
+    [SerializeField] private ItemContabilizer itemContabilizer;
 
-    enum State { Idle, Run, Cut, Mine }
+  enum State { Idle, Run, Cut, Mine }
 
     State state = State.Idle;
 
@@ -50,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
         leftMouseInput = Input.GetMouseButton(0);
-
     }
 
     void FixedUpdate()
@@ -140,38 +145,59 @@ public class PlayerMovement : MonoBehaviour
 
         if (Time.time >= nextActionTime)
         {
+            axeRay = new Ray(axePoint.position, transform.forward);
 
-            Vector3 center = transform.position;
-
-            Collider[] trees = Physics.OverlapSphere(center, radius, treesLayer);
-
-
-            foreach (Collider tree in trees)
+            if (Physics.Raycast(axeRay, out RaycastHit hit, maxDistance, treesLayer))
             {
-                tree.GetComponent<Tree>().TakeDamage(20);
+                GameObject hitObject = hit.collider.gameObject; hitObject.GetComponent<Tree>().TakeDamage(20);
+                Debug.Log(hit.collider.gameObject.name + " was hit!");
             }
 
             nextActionTime = Time.time + 1f / actionRate;
-
-
-            if (horizontalInput != 0f || verticalInput != 0f)
-            {
-                state = State.Run;
-            }
-            else if (horizontalInput == 0f)
-            {
-                state = State.Idle;
-            }
-            else if (leftMouseInput && pickaxe)
-            {
-                state = State.Mine;
-            }
         }
+
+        if (horizontalInput != 0f || verticalInput != 0f)
+        {
+            state = State.Run;
+        }
+        else if (horizontalInput == 0f)
+        {
+            state = State.Idle;
+        }
+        else if (leftMouseInput && pickaxe)
+        {
+            state = State.Mine;
+        }
+    }
+
+    public void AddWood(int number)
+    {
+        wood += number;
+        itemContabilizer.IncreaseItemCount();
+    }
+
+    public void SpendWood(int number)
+    {
+        wood -= number;
+        itemContabilizer.DecreaseItemCount();
     }
 
     void MineState()
     {
         animator.Play("Mine");
+
+        if (Time.time >= nextActionTime)
+        {
+            pickaxeRay = new Ray(pickaxePoint.position, transform.forward);
+
+            if (Physics.Raycast(pickaxeRay, out RaycastHit hit, maxDistance, rocksLayer))
+            {
+                GameObject hitObject = hit.collider.gameObject; hitObject.GetComponent<Rocks>().TakeDamage(20);
+                Debug.Log(hit.collider.gameObject.name + " was hit!");
+            }
+
+            nextActionTime = Time.time + 1f / actionRate;
+        }
 
         if (horizontalInput != 0f || verticalInput != 0f)
         {
@@ -187,16 +213,16 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
+    public void AddStone(int number)
     {
-        if (pickaxePoint || axePoint == null)
-        {
-            return;
-        }
+        stone += number;
+        itemContabilizer.IncreaseItemCount();
+    }
 
-        Gizmos.DrawWireSphere(pickaxePoint.position, radius);
-
-        Gizmos.DrawWireSphere(axePoint.position, radius);
+    public void SpendStone(int number)
+    {
+        stone -= number;
+        itemContabilizer.DecreaseItemCount();
     }
 }
 

@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class Rocks : MonoBehaviour
 {
-    public GameObject wood; 
+    public GameObject stone;
     public int maxHealth = 100;
     int currentHealth;
 
@@ -24,14 +24,13 @@ public class Tree : MonoBehaviour
 
         if (currentHealth < 0)
         {
-            Instantiate(wood, transform.position, Quaternion.identity);
+            Instantiate(stone, transform.position, Quaternion.identity);
             Destroy();
         }
 
     }
     void Destroy()
     {
-
         Destroy(gameObject);
     }
 }
