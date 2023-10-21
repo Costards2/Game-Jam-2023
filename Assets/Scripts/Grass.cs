@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rocks : MonoBehaviour
+public class Grass : MonoBehaviour
 {
-    public GameObject stone;
+    public GameObject fibre;
     public int maxHealth = 100;
     int currentHealth;
 
@@ -15,7 +15,7 @@ public class Rocks : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(currentHealth);
+        Debug.Log(currentHealth);
     }
 
     public void TakeDamage(int damage)
@@ -24,7 +24,7 @@ public class Rocks : MonoBehaviour
 
         if (currentHealth < 0)
         {
-            Instantiate(stone, transform.position, Quaternion.identity);
+            Instantiate(fibre, transform.position, Quaternion.identity);
             Destroy();
         }
 

@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Rock
-  - Stone
   layers:
   - Default
   - TransparentFX
@@ -16,7 +14,7 @@ TagManager:
   - UI
   - Trees
   - Rocks
-  - 
+  - Fibre
   - 
   - 
   - 
