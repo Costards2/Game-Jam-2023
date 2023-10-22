@@ -105,13 +105,13 @@ public class NpcDialogue : MonoBehaviour
         foreach (char letter in dialogueNpc[dialogueIndex])
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
     void NextDialogueMissionColpleted()
     {
-        dialogueIndexMissionComplete++;
+        dialogueIndexMissionComplete = dialogueIndexMissionComplete +1;
 
         if (dialogueIndexMissionComplete < dialogueNpcMissionComplete.Length)
         {
@@ -140,16 +140,16 @@ public class NpcDialogue : MonoBehaviour
     {
         dialogueText.text = "";
 
-        foreach (char letter in dialogueNpc[dialogueIndexMissionComplete])
+        foreach (char letter in dialogueNpcMissionComplete[dialogueIndexMissionComplete])
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
     void CheckMission()
     {
-        if (FindObjectOfType<PlayerMovement>().wood == missionWood && FindObjectOfType<PlayerMovement>().stone == missionStone && FindObjectOfType<PlayerMovement>().fibre == missionFibre)
+        if (FindObjectOfType<PlayerMovement>().wood >= missionWood && FindObjectOfType<PlayerMovement>().stone >= missionStone && FindObjectOfType<PlayerMovement>().fibre >= missionFibre)
         {
             missionComplete = true;
         }
