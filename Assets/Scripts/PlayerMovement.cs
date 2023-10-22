@@ -5,13 +5,12 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Equipe 6+")]
     [Header("Base Movement")]
-    private float horizontalInput = 0f;
-    private float verticalInput = 0f;
-    public float speed = 6f;
-    public float turnSmooth = 0.1f;
-    float turnSmothVelocity; 
+    [SerializeField] private float horizontalInput = 0f;
+    [SerializeField] private float verticalInput = 0f;
+    [SerializeField] public float speed = 6f;
+    [SerializeField] public float turnSmooth = 0.1f;
+    float turnSmothVelocity;
 
     [Header("Mine and Cut")]
     public LayerMask treesLayer;
@@ -58,6 +57,15 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
         leftMouseInput = Input.GetMouseButton(0);
+
+        switch (state)
+        {
+            case State.Idle: IdleState(); break;
+            case State.Run: RunState(); break;
+            case State.Cut: CutState(); break;
+            case State.Mine: MineState(); break;
+            case State.ScytheCut: ScytheCutState(); break;
+        }
     }
 
     void FixedUpdate()
@@ -89,15 +97,6 @@ public class PlayerMovement : MonoBehaviour
             axe = false;
             pickaxe = false;
             scythe = true;
-        }
-
-        switch (state)
-        {
-            case State.Idle: IdleState(); break;
-            case State.Run: RunState(); break;
-            case State.Cut: CutState(); break;
-            case State.Mine: MineState(); break;
-            case State.ScytheCut: ScytheCutState(); break;
         }
     }
 
