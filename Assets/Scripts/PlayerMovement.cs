@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Base Movement")]
     [SerializeField] private float horizontalInput = 0f;
     [SerializeField] private float verticalInput = 0f;
-    [SerializeField] public float speed = 6f;
+    [SerializeField] public float speed = 16f;
     [SerializeField] public float turnSmooth = 0.1f;
     float turnSmothVelocity;
 
@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public bool leftMouseInput;
 
     [Header("Base Components")]
+    Vector3 moveDirection;
     [SerializeField] private Animator animator;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private Ray axeRay;
@@ -42,8 +43,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Ray scytheRay;
     [SerializeField] private float maxDistance = 1f;
     [SerializeField] private ItemContabilizer itemContabilizer;
+    [SerializeField] public float gravity = -3f;
 
-  enum State { Idle, Run, Cut, Mine, ScytheCut }
+ enum State { Idle, Run, Cut, Mine, ScytheCut }
 
     State state = State.Idle;
 
@@ -126,7 +128,9 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.Play("Run");
 
-        Vector3 moveDirection = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
+        moveDirection = new Vector3(horizontalInput, gravity, verticalInput);
+
+        moveDirection.Normalize();
 
         if(moveDirection.magnitude > 0.1f)
         {
