@@ -11,42 +11,42 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.47
+      value: -71.078514
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.66
+      value: 208.94414
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.47
+      value: -145.39969
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.68148625
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7318309
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
@@ -56,7 +56,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -94.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 09aa06d6b9f366a498789617eddb9331,
         type: 3}
@@ -266,8 +266,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.012297962, y: 0.028141405, z: 0.05006527}
-  m_Center: {x: 0, y: -0.007921721, z: 0.02136093}
+  m_Size: {x: 0.012297963, y: 0.013343223, z: 0.05006527}
+  m_Center: {x: 4.205552e-10, y: -0.0005226222, z: 0.021360932}
 --- !u!1 &8583294673847947687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7640558969779515294, guid: 09aa06d6b9f366a498789617eddb9331,
