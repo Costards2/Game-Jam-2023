@@ -1577,17 +1577,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0e484fb2c87084fb3be2e931cd77b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionFibre: 0
+  missionStone: 0
+  missionWood: 1
   dialogueNpc:
-  - Gustavo
-  - "V\xE1 "
-  - "Lavar a Lou\xE7a! Seu gay miseravel viciado em pokemon! CORNOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+  - 'Not Parabens '
+  - Seu corno
   dialogueIndex: 0
+  dialogueNpcMissionComplete:
+  - 'Parabens '
+  - 'Parabens '
+  dialogueIndexMissionComplete: 0
+  nameNpcWrite: Gustavo
   dialoguePanel: {fileID: 823176287}
   dialogueText: {fileID: 118657012}
   nameNpc: {fileID: 1178073223}
   imageNpc: {fileID: 492954021}
   readyToTalk: 0
+  noWeapon: 0
   startDialogue: 0
+  missionComplete: 0
 --- !u!136 &1615519693
 CapsuleCollider:
   m_ObjectHideFlags: 0
