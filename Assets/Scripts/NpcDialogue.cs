@@ -7,10 +7,6 @@ using Unity.VisualScripting;
 
 public class NpcDialogue : MonoBehaviour
 {
-    [Header("Mission Materials")]
-    public int missionFibre;
-    public int missionStone;
-    public int missionWood;
 
     [Header("Dialogue Mission Imcomplete")]
     public string[] dialogueNpc;
@@ -35,7 +31,7 @@ public class NpcDialogue : MonoBehaviour
     public bool readyToTalk;
     public bool noWeapon;
     public bool startDialogue;
-    public bool npcSatified;
+    public bool npcSatified = false;
 
     void Start()
     {
