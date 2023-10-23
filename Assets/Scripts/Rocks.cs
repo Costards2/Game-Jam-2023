@@ -7,7 +7,7 @@ public class Rocks : MonoBehaviour
     public GameObject stone;
     public int maxHealth = 100;
     int currentHealth;
-
+    [SerializeField] private AudioSource Som;
     void Start()
     {
         currentHealth = maxHealth;
@@ -21,11 +21,12 @@ public class Rocks : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
+        Som.Play();
         if (currentHealth < 0)
         {
             Instantiate(stone, transform.position, Quaternion.identity);
             Destroy();
+            Som.Stop();
         }
 
     }
