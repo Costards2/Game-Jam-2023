@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
-    public int stoneAdd = 1;
+    public int stoneAdd = 3;
     public float minHeight = -0.2f;
     public float maxHeight = 1f;
     public float floatSpeed = 0.2f;  

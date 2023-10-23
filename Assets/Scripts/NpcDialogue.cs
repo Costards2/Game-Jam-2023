@@ -82,7 +82,7 @@ public class NpcDialogue : MonoBehaviour
             dialoguePanel.SetActive(false);
             startDialogue = false;
             dialogueIndex = 0;
-            FindObjectOfType<PlayerMovement>().speed = 6;
+            FindObjectOfType<PlayerMovement>().speed = 16;
         }
     }
 
@@ -120,7 +120,7 @@ public class NpcDialogue : MonoBehaviour
             dialoguePanel.SetActive(false);
             startDialogue = false;
             dialogueIndexMissionComplete = 0;
-            FindObjectOfType<PlayerMovement>().speed = 6;
+            FindObjectOfType<PlayerMovement>().speed = 16;
         }
     }
 

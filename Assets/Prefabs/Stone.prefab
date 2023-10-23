@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904934466e02b5b459f1c3b7a3a8c3cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoneAdd: 1
+  stoneAdd: 3
   minHeight: -0.2
   maxHeight: 1
   floatSpeed: 1

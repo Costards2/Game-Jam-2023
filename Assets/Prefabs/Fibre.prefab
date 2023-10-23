@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64f9793e9ae59d41bdcf06315f314b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fibreAdd: 1
+  fibreAdd: 2
   minHeight: -0.2
   maxHeight: 1
   floatSpeed: 0.2

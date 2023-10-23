@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 2217571694956042970}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3848005364071634826
 MeshFilter:
@@ -106,10 +106,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.3875113
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: -0.03664454, y: 0, z: 0.37797737}
 --- !u!114 &534801434615510536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 431059924136012043, guid: d2c9a736232ca7643b9953edef7e79c8, type: 3}
+    - {fileID: 8922277505820558833, guid: d2c9a736232ca7643b9953edef7e79c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

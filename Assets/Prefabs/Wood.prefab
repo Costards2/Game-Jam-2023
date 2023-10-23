@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f52516120c6aa4780695e2b17b478d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  woodAdd: 1
+  woodAdd: 4
   minHeight: -0.2
   maxHeight: 1
   floatSpeed: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wood : MonoBehaviour
 {
-    public int woodAdd = 1;
+    public int woodAdd = 4;
     public float minHeight = -0.2f;  
     public float maxHeight = 1f;
     public float floatSpeed = 1f;

@@ -65,6 +65,7 @@ public class ReceiveItems : MonoBehaviour
         FindObjectOfType<PlayerMovement>().wood -= missionWood;
         FindObjectOfType<PlayerMovement>().stone -= missionStone;
         FindObjectOfType<PlayerMovement>().fibre -= missionFibre;
+        FindObjectOfType<ItemContabilizer>().DecreaseItemCount();
         Repair() ;
     }
 

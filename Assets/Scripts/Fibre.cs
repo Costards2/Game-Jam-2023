@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fibre : MonoBehaviour
 {
-    public int fibreAdd = 1;
+    public int fibreAdd = 2;
     public float minHeight = -0.2f;
     public float maxHeight = 1f;
     public float floatSpeed = 0.2f;

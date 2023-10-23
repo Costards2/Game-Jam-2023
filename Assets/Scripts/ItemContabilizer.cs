@@ -24,6 +24,7 @@ public class ItemContabilizer : MonoBehaviour
     {
         wood = player.GetComponent<PlayerMovement>().wood;
         stone = player.GetComponent<PlayerMovement>().stone;
+        stone = player.GetComponent<PlayerMovement>().fibre;
         UpdateItemCountText();
         
     }

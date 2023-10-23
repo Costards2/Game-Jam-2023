@@ -176,7 +176,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (Physics.Raycast(axeRay, out RaycastHit hit, maxDistance, treesLayer))
             {
-                GameObject hitObject = hit.collider.gameObject; hitObject.GetComponent<Tree>().TakeDamage(20);
+                GameObject hitObject = hit.collider.gameObject; 
+                hitObject.GetComponent<Tree>().TakeDamage(20);
                 Debug.Log(hit.collider.gameObject.name + " was hit!");
             }
 
@@ -223,7 +224,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (Physics.Raycast(pickaxeRay, out RaycastHit hit, maxDistance, rocksLayer))
             {
-                GameObject hitObject = hit.collider.gameObject; hitObject.GetComponent<Rocks>().TakeDamage(20);
+                GameObject hitObject = hit.collider.gameObject;
+                hitObject.GetComponent<Rocks>().TakeDamage(20);
                 Debug.Log(hit.collider.gameObject.name + " was hit!");
             }
 
@@ -270,7 +272,8 @@ public class PlayerMovement : MonoBehaviour
 
             if (Physics.Raycast(scytheRay, out RaycastHit hit, maxDistance, fibreLayer))
             {
-                GameObject hitObject = hit.collider.gameObject; hitObject.GetComponent<Grass>().TakeDamage(20);
+                GameObject hitObject = hit.collider.gameObject; 
+                hitObject.GetComponent<Grass>().TakeDamage(20);
                 Debug.Log(hit.collider.gameObject.name + " was hit!");
             }
 

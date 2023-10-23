@@ -16,7 +16,7 @@ public class Grass : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(currentHealth);
+        
     }
 
     public void TakeDamage(int damage)

@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 5557380203078001463}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3848005364071634826
 MeshFilter:
@@ -106,10 +106,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.48202747
+  m_Height: 2.7347903
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.12124734, y: 0, z: -0.024432898}
 --- !u!114 &534801434615510536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +254,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: arvrinha_modelo_1 Variant (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4034255264025802008, guid: 4e73f1a6e3ec2474e9b9a5ba0661876e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
