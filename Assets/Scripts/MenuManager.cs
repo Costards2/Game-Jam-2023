@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour
 
     public void GameStart()
     {
-        SceneManager.LoadScene("Programming Scene");
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void Turorial()
