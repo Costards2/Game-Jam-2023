@@ -19,6 +19,7 @@ public class NpcDialogue : MonoBehaviour
     [Header("Dialogue Mission Completed")]
     public string[] dialogueNpcMissionComplete;
     public int dialogueIndexMissionComplete;
+    public string thanksNPC;
 
     [Header("NPC Name")]
 
@@ -35,6 +36,7 @@ public class NpcDialogue : MonoBehaviour
     public bool noWeapon;
     public bool startDialogue;
     public bool missionComplete;
+    public bool npcSatified;
 
     void Start()
     {
@@ -43,6 +45,11 @@ public class NpcDialogue : MonoBehaviour
 
     void Update()
     {
+        if(missionComplete) 
+        {
+            npcSatified = true;
+        }
+
         if (Input.GetMouseButton(0))
         {
 
@@ -153,14 +160,20 @@ public class NpcDialogue : MonoBehaviour
         {
             missionComplete = true;
         }
-        else
-        {
-            missionComplete = false;
-        }
+    }
+
+    void Satisfied()
+    {
+        dialogueText.text = "" + npcSatified;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (npcSatified)
+        {
+            readyToTalk = false;
+        }
+
         CheckMission();
 
         if (other.CompareTag("Player"))

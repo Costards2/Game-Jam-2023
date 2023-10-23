@@ -20,13 +20,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Programming Scene");
     }
 
-    public void Jogar()
-    {
-        //Ativar painel de escolha homen ou mulher
-        painelPlay.SetActive(true);
-    }
-
-    public void Controles()
+    public void Turorial()
     {
         //painelMenuInicial.SetActive(false);
         painelControles.SetActive(true);
