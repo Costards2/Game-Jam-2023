@@ -5,15 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject painelMenuInicial;
-    [SerializeField] private GameObject painelPlay;
-    [SerializeField] private GameObject painelControles;
-
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
+    [SerializeField] private GameObject tutorialHud;
+    [SerializeField] private GameObject basicHud;
 
     public void GameStart()
     {
@@ -22,8 +15,20 @@ public class MenuManager : MonoBehaviour
 
     public void Turorial()
     {
-        //painelMenuInicial.SetActive(false);
-        painelControles.SetActive(true);
+        basicHud.SetActive(false);
+        tutorialHud.SetActive(true);
+
+    }
+
+    public void Voltar()
+    {
+        basicHud.SetActive(true);
+        tutorialHud.SetActive(false);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     public void Sair()
