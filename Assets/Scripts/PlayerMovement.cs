@@ -45,7 +45,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ItemContabilizer itemContabilizer;
     [SerializeField] public float gravity = -3f;
 
- enum State { Idle, Run, Cut, Mine, ScytheCut }
+    [SerializeField] AudioSource Som;
+
+    enum State { Idle, Run, Cut, Mine, ScytheCut }
 
     State state = State.Idle;
 
@@ -105,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
     void IdleState()
     {
         animator.Play("Idle");
+        Som.Stop();
 
         if (horizontalInput != 0f || verticalInput != 0f)
         {
@@ -127,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
     void RunState()
     {
         animator.Play("Run");
-
+        Som.Play();
         moveDirection = new Vector3(horizontalInput, gravity, verticalInput);
 
         moveDirection.Normalize();
