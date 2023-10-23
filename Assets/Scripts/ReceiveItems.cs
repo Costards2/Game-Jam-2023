@@ -20,6 +20,7 @@ public class ReceiveItems : MonoBehaviour
     public GameObject npcMission;
     public GameObject preRepair;
     public GameObject posRepair;
+    public GameObject collider;
 
     void Start()
     {
@@ -73,6 +74,7 @@ public class ReceiveItems : MonoBehaviour
     {
         npcMission.GetComponent<NpcDialogue>().npcSatified = missionComplete; 
         preRepair.SetActive(false);
+        collider.SetActive(false);
         posRepair.SetActive(true);
     }
 }

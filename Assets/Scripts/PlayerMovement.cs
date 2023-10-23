@@ -45,6 +45,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ItemContabilizer itemContabilizer;
     [SerializeField] public float gravity = -3f;
 
+    [Header("Ui")]
+    public GameObject axeUi;
+    public GameObject axeUIA;
+    public GameObject pickaxeUI;
+    public GameObject pickaxeUIA;
+    public GameObject foiceUI;
+    public GameObject foiceUIA;
+    public GameObject handUI;
+    public GameObject HandUIA;
+
     [SerializeField] AudioSource Som;
 
     enum State { Idle, Run, Cut, Mine, ScytheCut }
@@ -74,33 +84,35 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Depois criar um script separado para identificar a troca de Items das mãos
+
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            hand = true;
-            axe = false;
-            pickaxe = false;
-            scythe = false;
-}
+            hand = true; HandUIA.SetActive(true);
+            axe = false; axeUIA.SetActive(false);
+            pickaxe = false; pickaxeUIA.SetActive(false);
+            scythe = false; foiceUIA.SetActive(false);
+        }
         else if (Input.GetKey(KeyCode.Alpha2))
         {
-            hand = false;
-            axe = true;
-            pickaxe = false;
-            scythe = false;
+            hand = false; HandUIA.SetActive(false);
+            axe = true; axeUIA.SetActive(true);
+            pickaxe = false; pickaxeUIA.SetActive(false);
+            scythe = false; foiceUIA.SetActive(false);
         }
         else if (Input.GetKey(KeyCode.Alpha3))
         {
-            hand = false;
-            axe = false;
-            pickaxe = true;
-            scythe = false;
+            hand = false; HandUIA.SetActive(false);
+            axe = false; axeUIA.SetActive(false);
+            pickaxe = true; pickaxeUIA.SetActive(true);
+            scythe = false; foiceUIA.SetActive(false);
         }
         else if (Input.GetKey(KeyCode.Alpha4))
         {
-            hand = false;
-            axe = false;
-            pickaxe = false;
-            scythe = true;
+            hand = false; HandUIA.SetActive(false);
+            axe = false; axeUIA.SetActive(false);
+            pickaxe = false; pickaxeUIA.SetActive(false);
+            scythe = true; foiceUIA.SetActive(true);
         }
     }
 

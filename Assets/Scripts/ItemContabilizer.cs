@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class ItemContabilizer : MonoBehaviour
 {
-    public TextMeshProUGUI itemText;
+    public TextMeshProUGUI woodT;
+    public TextMeshProUGUI stoneT;
+    public TextMeshProUGUI fibreT;
     private int wood = 0;
     private int stone = 0;
     private int fibre = 0;
@@ -31,7 +33,9 @@ public class ItemContabilizer : MonoBehaviour
 
     private void UpdateItemCountText()
     {
-        itemText.text = "Wood: " + wood + "\nStone: " + stone + "\nFibre: " + fibre;
+        woodT.text = "" + wood;
+        stoneT.text = "" + stone;
+        fibreT.text = "" + fibre;
     }
 
     void Start()
