@@ -142,7 +142,9 @@ public class PlayerMovement : MonoBehaviour
     void RunState()
     {
         animator.Play("Run");
+
         Som.Play();
+
         moveDirection = new Vector3(horizontalInput, gravity, verticalInput);
 
         moveDirection.Normalize();

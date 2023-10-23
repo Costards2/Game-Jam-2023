@@ -15,12 +15,13 @@ public class ReceiveItems : MonoBehaviour
     public bool noWeapon;
     public bool missionComplete;
     public bool canRepair;
+    public bool give; 
 
     [Header("GameObjects")]
     public GameObject npcMission;
     public GameObject preRepair;
     public GameObject posRepair;
-    public GameObject collider;
+    public GameObject colliderBarier;
 
     void Start()
     {
@@ -29,7 +30,9 @@ public class ReceiveItems : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && canRepair)
+        give = Input.GetKey(KeyCode.E);
+
+        if (give && canRepair)
         {
             CaculateItems();
         }
@@ -74,7 +77,7 @@ public class ReceiveItems : MonoBehaviour
     {
         npcMission.GetComponent<NpcDialogue>().npcSatified = missionComplete; 
         preRepair.SetActive(false);
-        collider.SetActive(false);
+        colliderBarier.SetActive(false);
         posRepair.SetActive(true);
     }
 }

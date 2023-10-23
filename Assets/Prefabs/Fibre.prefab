@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7661688394128410670
 MeshFilter:
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fibreAdd: 2
-  minHeight: -0.2
-  maxHeight: 1
+  minHeight: 0.7
+  maxHeight: 1.3
   floatSpeed: 0.2
   rotationSpeed: 15
