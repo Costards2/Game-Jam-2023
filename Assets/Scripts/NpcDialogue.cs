@@ -35,7 +35,6 @@ public class NpcDialogue : MonoBehaviour
     public bool readyToTalk;
     public bool noWeapon;
     public bool startDialogue;
-    public bool missionComplete;
     public bool npcSatified;
 
     void Start()
@@ -45,11 +44,6 @@ public class NpcDialogue : MonoBehaviour
 
     void Update()
     {
-        if(missionComplete) 
-        {
-            npcSatified = true;
-        }
-
         if (Input.GetMouseButton(0))
         {
 
@@ -57,7 +51,7 @@ public class NpcDialogue : MonoBehaviour
             {
                 FindObjectOfType<PlayerMovement>().speed = 0;
 
-                if(missionComplete)
+                if(npcSatified)
                 {
                     StartDialogueMissionColpleted();
                 }
@@ -68,11 +62,11 @@ public class NpcDialogue : MonoBehaviour
             }
         }
 
-        if (dialogueText.text == dialogueNpc[dialogueIndex] && Input.GetMouseButton(0) && !missionComplete)
+        if (dialogueText.text == dialogueNpc[dialogueIndex] && Input.GetMouseButton(0) && !npcSatified)
         {
             NextDialogue();
         }
-        else if (dialogueText.text == dialogueNpcMissionComplete[dialogueIndexMissionComplete] && Input.GetMouseButton(0) && missionComplete)
+        else if (dialogueText.text == dialogueNpcMissionComplete[dialogueIndexMissionComplete] && Input.GetMouseButton(0) && npcSatified)
         {
             NextDialogueMissionColpleted();
         }
@@ -154,28 +148,8 @@ public class NpcDialogue : MonoBehaviour
         }
     }
 
-    void CheckMission()
-    {
-        if (FindObjectOfType<PlayerMovement>().wood >= missionWood && FindObjectOfType<PlayerMovement>().stone >= missionStone && FindObjectOfType<PlayerMovement>().fibre >= missionFibre)
-        {
-            missionComplete = true;
-        }
-    }
-
-    void Satisfied()
-    {
-        dialogueText.text = "" + npcSatified;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (npcSatified)
-        {
-            readyToTalk = false;
-        }
-
-        CheckMission();
-
         if (other.CompareTag("Player"))
         {
             readyToTalk = true;
