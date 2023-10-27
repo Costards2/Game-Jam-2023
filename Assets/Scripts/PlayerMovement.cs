@@ -149,9 +149,9 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection.Normalize();
 
-        if(moveDirection.magnitude > 0.1f)
+        if(horizontalInput != 0f || verticalInput != 0f)
         {
-            float targetAngle = Mathf.Atan2(moveDirection .x, moveDirection.z) * Mathf.Rad2Deg;
+            float targetAngle = Mathf.Atan2(horizontalInput, verticalInput) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmothVelocity, turnSmooth);
             transform.rotation = Quaternion.Euler(0.0f, targetAngle ,0.0f);
 
